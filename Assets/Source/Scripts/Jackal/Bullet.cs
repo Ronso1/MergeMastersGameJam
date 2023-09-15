@@ -17,4 +17,12 @@ public class Bullet : MonoBehaviour, Poolable
     {
         gameObject.SetActive(true);
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.TryGetComponent(out Enemy enemy))
+        {
+
+        }
+    }
 }
