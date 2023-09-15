@@ -1,39 +1,20 @@
 public abstract class State
 {
-    private StateMachine machine;
+    public StateMachine _stateMachine;
 
     public State(StateMachine stateMachine)
     {
-        machine = stateMachine;
+        _stateMachine = stateMachine;
     }
 
-    public virtual void Enter()
-    {
+    public abstract void Enter();
+    public abstract void HandleInput();
 
-    }
+    public abstract void LogicUpdate();
 
-    public virtual void HandleInput()
-    {
+    public abstract void PhysicsUpdate();
 
-    }
+    public abstract void CheckStateChange();
 
-    public virtual void LogicUpdate()
-    {
-
-    }
-
-    public virtual void PhysicsUpdate()
-    {
-
-    }
-
-    public virtual void CheckStateChange()
-    {
-
-    }
-
-    public virtual void Exit()
-    {
-
-    }
+    public abstract void Exit();
 }
