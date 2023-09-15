@@ -13,6 +13,7 @@ public class CollectablesLogic : MonoBehaviour
         if (collision.gameObject == _playerGoldScore)
         {
             _playerGoldScore.GetComponent<PlayerMovement>().PlayerScore++;
+            _playerGoldScore.GetComponent<PlayerMovement>().ShowInfoAboutScore();
             transform.gameObject.SetActive(false);
         }
     }

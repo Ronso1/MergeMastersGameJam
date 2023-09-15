@@ -8,13 +8,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        
+        ShowInfoAboutScore();
     }
 
     private void Update()
     {
-        _playerScoreInfo.text = $"Gold: {PlayerScore}"; 
         var Horizontal = Input.GetAxis("Horizontal");
         transform.Translate(Horizontal * _speed * Time.deltaTime, 0f, 0f);
     }
+
+    public void ShowInfoAboutScore() => _playerScoreInfo.text = $"Gold: {PlayerScore}";
 }
