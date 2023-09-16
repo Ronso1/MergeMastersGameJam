@@ -12,7 +12,7 @@ public class LevelDIgenerator : MonoBehaviour
     {
         for(int i = 0; i < _levelLenght-1; i++)
         {
-            var levelPart = _levelPrefabs[Random.Range(0, _levelPrefabs.Length)];
+            var levelPart = Instantiate(_levelPrefabs[Random.Range(0, _levelPrefabs.Length)]);
             levelPart.transform.position = Vector2.up * _levelOffset * (i + 1);
         }
     }

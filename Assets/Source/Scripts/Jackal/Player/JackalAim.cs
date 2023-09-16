@@ -14,7 +14,7 @@ public class JackalAim : MonoBehaviour
     private void Update()
     {
         Vector2 diff = _camera.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        float angle = Vector2.SignedAngle(Vector2.up, diff);
-        transform.rotation = Quaternion.Euler(0, 0, angle);
+        float angle = Vector2.SignedAngle(Vector2.right, diff);
+        transform.eulerAngles = new Vector3(0, 0, angle);
     }
 }

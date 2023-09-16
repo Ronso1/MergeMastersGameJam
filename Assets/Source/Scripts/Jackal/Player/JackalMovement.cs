@@ -11,10 +11,14 @@ public class JackalMovement : MonoBehaviour
 
     [SerializeField] private Animator _animator;
     [SerializeField] private Rigidbody2D _rigidbody;
+    [SerializeField] private SpriteRenderer _spriteRenderer;
+    [SerializeField] private Transform _gun;
     [SerializeField] private float _speed;
 
     public Animator Animator { get { return _animator; } }
     public Rigidbody2D Rigidbody { get { return _rigidbody; } }
+    public SpriteRenderer SpriteRenderer { get { return _spriteRenderer; } }
+    public Transform Gun { get { return _gun; } }
     public StateMachine StateMachine { get { return _stateMachine; } }
     public IdleState IdleState { get {  return _idleState; } }
     public MoveState MoveState { get { return _moveState; } }
