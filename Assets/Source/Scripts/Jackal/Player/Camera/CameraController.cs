@@ -16,5 +16,6 @@ public class CameraController : MonoBehaviour
     {
         if(_player.position.y > _maxPos)
             transform.position = new Vector3(-4, _maxPos = _player.position.y, -10);
+
     }
 }

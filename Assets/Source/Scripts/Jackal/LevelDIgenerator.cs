@@ -25,7 +25,7 @@ public class LevelDIgenerator : MonoBehaviour
         SpawnChunks();
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         float diff = (transform.position - _player.position).magnitude;
         if (diff < _levelOffset * 2)

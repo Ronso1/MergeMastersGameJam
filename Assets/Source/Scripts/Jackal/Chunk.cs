@@ -35,15 +35,11 @@ public class Chunk : MonoBehaviour, Poolable
         if(collision.TryGetComponent(out CameraCollider _))
         {
             gameObject.SetActive(false);
-            foreach(var modifier in _nvModifiers)
-                modifier.enabled = false;
         }
     }
 
     public void Reset()
     {
         gameObject.SetActive(true);
-        foreach (var modifier in _nvModifiers)
-            modifier.enabled = true;
     }
 }
