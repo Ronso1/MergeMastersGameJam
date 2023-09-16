@@ -27,6 +27,6 @@ public class JackalShoot : MonoBehaviour
         Bullet bullet = _bulletPool.GetElement();
         bullet.Reset();
         bullet.transform.position = _shootPosition.position;
-        bullet._directon = _gun.rotation * Vector2.up;
+        bullet._directon = _gun.rotation * Vector2.right;
     }
 }

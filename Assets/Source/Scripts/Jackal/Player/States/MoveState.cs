@@ -40,7 +40,19 @@ public class MoveState : State
         CheckStateChange();
         float angle = Vector2.SignedAngle(Vector2.up, _input);
         if(_input != Vector2.zero)
+        {
             _jackal.transform.rotation = Quaternion.Euler(0, 0, angle);
+            if(angle > 0 && Mathf.Abs(angle) <= 180)
+            {
+                _jackal.transform.localScale = new Vector3(-1, 1, 1);
+                _jackal.Gun.localScale = new Vector3(-1, 1, 1);
+            }
+            else
+            {
+                _jackal.transform.localScale = Vector3.one;
+                _jackal.Gun.localScale = Vector3.one;
+            }
+        }
     }
 
     public override void PhysicsUpdate()

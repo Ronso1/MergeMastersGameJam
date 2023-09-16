@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 2
   _idleDistance: 15
-  _attackDistance: 5
+  _attackDistance: 10
   _attackTime: 3

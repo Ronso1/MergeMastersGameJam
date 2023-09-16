@@ -19,6 +19,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Transform _shootPos;
     [SerializeField] private EnemyConfig _enemyConfig;
     [SerializeField] private LayerMask _layerMaskForRaycast;
+    [SerializeField] private int _hazard;
 
     public EnemyIdleState EnemyIdleState { get { return _enemyIdleState; } }
     public EnemyMovingState EnemyMovingState { get { return _enemyMovingState; } }
@@ -29,6 +30,7 @@ public class Enemy : MonoBehaviour
     public Transform Player { get { return _player; } }
     public Transform ShootPos { get { return _shootPos; } }
     public EnemyConfig EnemyConfig { get { return _enemyConfig; } }
+    public int Hazard { get { return _hazard; } }
 
     private void Start()
     {
@@ -56,11 +58,16 @@ public class Enemy : MonoBehaviour
 
     public bool RaycastToPlayer(Vector2 diff)
     {
-        var hit = Physics2D.Raycast(transform.position, diff, _enemyConfig.AttackDistance, _layerMaskForRaycast);
+        var hit = Physics2D.Raycast(_shootPos.position, diff, _enemyConfig.AttackDistance, _layerMaskForRaycast);
         if(hit.collider != null && hit.collider.TryGetComponent(out JackalMovement _))
         {
             return true;
         }
         return false;
+    }
+
+    public void SetPlayer(Transform player)
+    {
+        _player = player;
     }
 }
