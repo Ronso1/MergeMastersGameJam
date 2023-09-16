@@ -8,6 +8,7 @@ public class EnemiesController : MonoBehaviour
     private List<Enemy> _enemies = new List<Enemy>();
     private Pool<Bullet> _enemyBullets;
     [SerializeField] private Bullet _bulletPrefab;
+    [SerializeField] private Transform _player;
 
     private void Start()
     {
@@ -16,6 +17,17 @@ public class EnemiesController : MonoBehaviour
         {
             _enemies.Add(enemy);
             enemy.BulletPool = _enemyBullets;
+            enemy.SetPlayer(_player);
+        }
+    }
+
+    public void NewChunk(List<Enemy> enemies)
+    {
+        foreach (Enemy enemy in enemies)
+        {
+            _enemies.Add(enemy);
+            enemy.BulletPool = _enemyBullets;
+            enemy.SetPlayer(_player);
         }
     }
 }
