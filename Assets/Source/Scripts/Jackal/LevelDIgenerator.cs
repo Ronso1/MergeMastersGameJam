@@ -42,8 +42,8 @@ public class LevelDIgenerator : MonoBehaviour
             levelPart.Hazard = Random.Range(1, 3);
             levelPart.Player = _player;
             levelPart.Reset();
+
             levelPart.transform.position = transform.position + Vector3.up * _levelOffset * (i + 1);
-            
         }
         transform.position = levelPart.transform.position;
         _navMesh.UpdateNavMesh(_navMesh.navMeshData);

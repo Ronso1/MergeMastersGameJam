@@ -20,6 +20,7 @@ public class MoveState : State
 
         if (_jackal.HealthManager.Health <= 0)
         {
+            _stateMachine.ChangeState(_jackal.DieState);
 
         }
     }

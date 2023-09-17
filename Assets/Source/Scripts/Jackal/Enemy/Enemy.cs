@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour, Damagable
     private EnemyDieState _enemyDieState;
     private HealthManager _healthManager;
 
+    private bool isStop = false;
+
     [HideInInspector] public Pool<Bullet> BulletPool;
     [HideInInspector] public Pool<Drop> DropPool;
 
@@ -63,12 +65,14 @@ public class Enemy : MonoBehaviour, Damagable
 
     private void Update()
     {
-        _stateMachine.CurrentState.LogicUpdate();
+        if(!isStop)
+            _stateMachine.CurrentState.LogicUpdate();
     }
 
     private void FixedUpdate()
     {
-        _stateMachine.CurrentState.PhysicsUpdate();
+        if(!isStop)
+            _stateMachine.CurrentState.PhysicsUpdate();
     }
 
     public bool RaycastToPlayer(Vector2 diff)
@@ -95,5 +99,10 @@ public class Enemy : MonoBehaviour, Damagable
     {
         _healthManager.Reset();
         _stateMachine.Initialize(_enemyIdleState);
+    }
+
+    public void Stop()
+    {
+        isStop = !isStop;
     }
 }

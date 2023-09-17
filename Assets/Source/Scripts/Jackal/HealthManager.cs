@@ -20,6 +20,11 @@ public class HealthManager
         _health -= damage;
     }
 
+    public void Heal(int hp)
+    {
+        _health += hp;
+    }
+
     public void Reset()
     {
         _health = _maxHealth;

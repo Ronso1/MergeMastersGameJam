@@ -10,6 +10,7 @@ public class CameraController : MonoBehaviour
     private void Start()
     {
         _player = FindFirstObjectByType<JackalMovement>().transform;
+        _maxPos = _player.position.y;
     }
 
     private void Update()

@@ -29,4 +29,9 @@ public class Bullet : MonoBehaviour, Poolable
         }
         gameObject.SetActive(false);
     }
+
+    public void SetDamage(int damage)
+    {
+        _damage = damage;
+    }
 }

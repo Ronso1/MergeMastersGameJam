@@ -12,17 +12,14 @@ public class EnemiesController : MonoBehaviour
     [SerializeField] private Drop _dropPrefab;
     [SerializeField] private Transform _player;
 
+    private JackalMovement jackalMovement;
+
     private void Start()
     {
+        jackalMovement = _player.GetComponent<JackalMovement>();
         _enemyBullets = new Pool<Bullet>(_bulletPrefab, 30);
         _enemyDrops = new Pool<Drop>(_dropPrefab, 20);
-        foreach (Enemy enemy in FindObjectsOfType<Enemy>())
-        {
-            _enemies.Add(enemy);
-            enemy.BulletPool = _enemyBullets;
-            enemy.DropPool = _enemyDrops;
-            enemy.SetPlayer(_player);
-        }
+        NewChunk(FindObjectsOfType<Enemy>().ToList());
     }
 
     public void NewChunk(List<Enemy> enemies)
@@ -32,6 +29,7 @@ public class EnemiesController : MonoBehaviour
             _enemies.Add(enemy);
             enemy.BulletPool = _enemyBullets;
             enemy.DropPool = _enemyDrops;
+            jackalMovement.StopGame += enemy.Stop;
             enemy.SetPlayer(_player);
         }
     }
