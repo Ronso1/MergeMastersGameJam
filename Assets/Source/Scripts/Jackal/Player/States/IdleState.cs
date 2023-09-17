@@ -17,6 +17,11 @@ public class IdleState : State
     {
         if(_input != Vector2.zero)
             _stateMachine.ChangeState(_jackal.MoveState);
+
+        if (_jackal.HealthManager.Health <= 0)
+        {
+
+        }
     }
 
     public override void Enter()
