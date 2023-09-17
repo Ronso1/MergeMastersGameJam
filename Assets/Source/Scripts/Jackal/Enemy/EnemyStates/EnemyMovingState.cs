@@ -22,13 +22,14 @@ public class EnemyMovingState : State
 
     public override void Enter()
     {
+        _enemy.Animator.SetBool("IsRun", true);
         _enemy.NavMeshAgent.isStopped = false;
     }
 
     public override void Exit()
     {
+        _enemy.Animator.SetBool("IsRun", false);
         _enemy.NavMeshAgent.isStopped = true;
-        Debug.Log("gasga");
     }
 
     public override void LogicUpdate()
@@ -36,6 +37,11 @@ public class EnemyMovingState : State
         _diff = _enemy.Player.position - _enemy.transform.position;
         CheckStateChange();
         _enemy.NavMeshAgent.destination = _enemy.Player.position;
+        float angle = Vector2.SignedAngle(Vector2.up, _diff);
+        if (angle > 0)
+            _enemy.transform.localScale = new Vector3(-1, 1, 1);
+        else
+            _enemy.transform.localScale = new Vector3(1, 1, 1);
     }
 
     public override void PhysicsUpdate()

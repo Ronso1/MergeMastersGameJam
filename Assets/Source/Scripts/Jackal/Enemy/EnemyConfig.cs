@@ -8,10 +8,8 @@ public class EnemyConfig : ScriptableObject
     [SerializeField] private float _speed;
     [SerializeField] private float _idleDistance;
     [SerializeField] private float _attackDistance;
-    [SerializeField] private float _attackTime;
 
     public float Speed { get { return _speed; } }
     public float IdleDistance { get { return _idleDistance; } }
     public float AttackDistance { get { return _attackDistance; } }
-    public float AttackTime { get { return _attackTime; } }
 }

@@ -5300,9 +5300,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3713880201241306789, guid: a9d8627b342b3cb4d9ed6be8e2b85a06, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 15.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3713880201241306789, guid: a9d8627b342b3cb4d9ed6be8e2b85a06, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3983433757443386627, guid: a9d8627b342b3cb4d9ed6be8e2b85a06, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 3983433757443386627, guid: a9d8627b342b3cb4d9ed6be8e2b85a06, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.64
+      objectReference: {fileID: 0}
     - target: {fileID: 4383559775000268035, guid: a9d8627b342b3cb4d9ed6be8e2b85a06, type: 3}
       propertyPath: m_Name
       value: Chunk Variant 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5249725485953646026, guid: a9d8627b342b3cb4d9ed6be8e2b85a06, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5249725485953646026, guid: a9d8627b342b3cb4d9ed6be8e2b85a06, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.41
       objectReference: {fileID: 0}
     - target: {fileID: 5949760868591268580, guid: a9d8627b342b3cb4d9ed6be8e2b85a06, type: 3}
       propertyPath: m_TileAssetArray.Array.size
@@ -5359,6 +5383,14 @@ PrefabInstance:
     - target: {fileID: 5949760868591268580, guid: a9d8627b342b3cb4d9ed6be8e2b85a06, type: 3}
       propertyPath: m_Tiles.Array.data[299].second.m_TileSpriteIndex
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6303522048984966923, guid: a9d8627b342b3cb4d9ed6be8e2b85a06, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6303522048984966923, guid: a9d8627b342b3cb4d9ed6be8e2b85a06, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -6.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
