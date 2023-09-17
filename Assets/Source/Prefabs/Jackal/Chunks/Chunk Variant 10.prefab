@@ -18760,8 +18760,16 @@ PrefabInstance:
       propertyPath: m_Tiles.Array.data[670].second.m_TileObjectToInstantiateIndex
       value: 65535
       objectReference: {fileID: 0}
+    - target: {fileID: 6303522048984966923, guid: a9d8627b342b3cb4d9ed6be8e2b85a06, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.62
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 531664017648138500, guid: a9d8627b342b3cb4d9ed6be8e2b85a06, type: 3}
+    - {fileID: 8948729722759209579, guid: a9d8627b342b3cb4d9ed6be8e2b85a06, type: 3}
+    - {fileID: 265004444597908130, guid: a9d8627b342b3cb4d9ed6be8e2b85a06, type: 3}
+    - {fileID: 3939737931767225549, guid: a9d8627b342b3cb4d9ed6be8e2b85a06, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9d8627b342b3cb4d9ed6be8e2b85a06, type: 3}
