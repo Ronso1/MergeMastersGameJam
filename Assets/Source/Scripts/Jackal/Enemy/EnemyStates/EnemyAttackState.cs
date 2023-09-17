@@ -18,17 +18,29 @@ public class EnemyAttackState : State
     {
         if (_diff.magnitude >= _enemy.EnemyConfig.AttackDistance || !_enemy.RaycastToPlayer(_diff))
             _stateMachine.ChangeState(_enemy.EnemyMovingState);
+
+        if(_enemy.HealthManager.Health <= 0)
+        {
+
+        }
     }
 
     public override void Enter()
     {
+        _timer = 100;
+        if (_enemy.IsCar)
+        {
+            _attackTime = 3;
+            return;
+        }
         _enemy.Animator.SetBool("Attack", true);
         _attackTime = _enemy.Animator.GetCurrentAnimatorClipInfo(0).Length;
-        _timer = 100;
     }
 
     public override void Exit()
     {
+        if (_enemy.IsCar)
+            return;
         _enemy.Animator.SetBool("Attack", false);
     }
 
@@ -42,8 +54,14 @@ public class EnemyAttackState : State
             _timer = 0;
         }
         _timer += Time.deltaTime;
-        
+
         float angle = Vector2.SignedAngle(Vector2.up, _diff);
+        if (_enemy.IsCar)
+        {
+            float angleForCar = Vector2.SignedAngle(Vector2.right, _diff);
+            _enemy.transform.eulerAngles = new Vector3(0, 0, angleForCar);
+            return;
+        }
         if (angle > 0)
             _enemy.transform.localScale = new Vector3(-1, 1, 1);
         else

@@ -16,6 +16,11 @@ public class EnemyIdleState : State
     {
         if (_diff <= _enemy.EnemyConfig.IdleDistance)
             _stateMachine.ChangeState(_enemy.EnemyMovingState);
+
+        if (_enemy.HealthManager.Health <= 0)
+        {
+
+        }
     }
 
     public override void Enter() 

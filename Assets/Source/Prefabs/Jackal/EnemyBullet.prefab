@@ -129,6 +129,7 @@ MonoBehaviour:
   _speed: 10
   _rigidbody: {fileID: 3851127372213878395}
   _directon: {x: 0, y: 0}
+  _tag: Player
 --- !u!58 &4730847370192335709
 CircleCollider2D:
   m_ObjectHideFlags: 0

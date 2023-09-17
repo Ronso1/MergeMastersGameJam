@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.UIElements;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour, Poolable
@@ -7,6 +8,7 @@ public class Bullet : MonoBehaviour, Poolable
     [SerializeField] private float _speed;
     [SerializeField] private Rigidbody2D _rigidbody;
     [HideInInspector] public Vector2 _directon;
+    [SerializeField] private string _tag;
 
     private void FixedUpdate()
     {
@@ -20,9 +22,10 @@ public class Bullet : MonoBehaviour, Poolable
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.TryGetComponent(out Enemy enemy))
+        if (other.gameObject.tag == _tag)
         {
-
+            Debug.Log("Õ≈√–€ œ»ƒ¿–¿—€");
         }
+        gameObject.SetActive(false);
     }
 }
