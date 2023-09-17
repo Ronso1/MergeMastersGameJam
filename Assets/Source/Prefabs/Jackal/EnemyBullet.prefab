@@ -127,6 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 10
+  _damage: 7
   _rigidbody: {fileID: 3851127372213878395}
   _directon: {x: 0, y: 0}
   _tag: Player

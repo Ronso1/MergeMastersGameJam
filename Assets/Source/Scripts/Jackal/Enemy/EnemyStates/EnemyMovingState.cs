@@ -22,7 +22,7 @@ public class EnemyMovingState : State
 
         if (_enemy.HealthManager.Health <= 0)
         {
-
+            _stateMachine.ChangeState(_enemy.EnemyDieState);
         }
     }
 

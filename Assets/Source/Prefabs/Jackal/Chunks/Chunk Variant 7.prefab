@@ -10264,6 +10264,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -6.97
       objectReference: {fileID: 0}
+    - target: {fileID: 4563183799790202934, guid: a9d8627b342b3cb4d9ed6be8e2b85a06, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 4563183799790202934, guid: a9d8627b342b3cb4d9ed6be8e2b85a06, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -13.85
+      objectReference: {fileID: 0}
     - target: {fileID: 5949760868591268580, guid: a9d8627b342b3cb4d9ed6be8e2b85a06, type: 3}
       propertyPath: m_TileAssetArray.Array.data[0].m_RefCount
       value: 150

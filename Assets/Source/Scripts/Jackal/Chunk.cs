@@ -12,34 +12,34 @@ public class Chunk : MonoBehaviour, Poolable
     public int Hazard { get; set; }
     public Transform Player { get; set; }
 
-    private void Start()
-    {
-        int enemyHazard = Hazard * 50;
-        List<Enemy> activeEnemies = new List<Enemy>();
-        foreach(Enemy enemy in _enemies)
-        {
-            enemyHazard -= enemy.Hazard;
-            if(enemyHazard > 0)
-            {
-                enemy.gameObject.SetActive(true);
-                activeEnemies.Add(enemy);
-                continue;
-            }
-            break;
-        }
-        FindFirstObjectByType<EnemiesController>().NewChunk(activeEnemies);
-    }
-
     private void OnTriggerExit2D(Collider2D collision)
     {
         if(collision.TryGetComponent(out CameraCollider _))
         {
             gameObject.SetActive(false);
+            foreach (Enemy enemy in _enemies)
+            {
+                enemy.gameObject.SetActive(false);
+            }
         }
     }
 
     public void Reset()
     {
         gameObject.SetActive(true);
+
+        int enemyHazard = Hazard * 50;
+        List<Enemy> activeEnemies = new List<Enemy>();
+        foreach (Enemy enemy in _enemies)
+        {
+            enemyHazard -= enemy.Hazard;
+            if (enemyHazard > 0)
+            {
+                enemy.gameObject.SetActive(true);
+                enemy.Reset();
+                activeEnemies.Add(enemy);
+            }
+        }
+        FindFirstObjectByType<EnemiesController>().NewChunk(activeEnemies);
     }
 }

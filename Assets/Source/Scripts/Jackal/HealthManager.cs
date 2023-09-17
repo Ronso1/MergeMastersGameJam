@@ -19,4 +19,9 @@ public class HealthManager
     {
         _health -= damage;
     }
+
+    public void Reset()
+    {
+        _health = _maxHealth;
+    }
 }
