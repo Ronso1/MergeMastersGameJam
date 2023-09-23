@@ -14,7 +14,7 @@ public class EnemiesController : MonoBehaviour
 
     private JackalMovement jackalMovement;
 
-    private void Start()
+    public void Init()
     {
         jackalMovement = _player.GetComponent<JackalMovement>();
         _enemyBullets = new Pool<Bullet>(_bulletPrefab, 30);

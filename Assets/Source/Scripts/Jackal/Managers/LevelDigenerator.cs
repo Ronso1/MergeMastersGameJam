@@ -2,8 +2,9 @@ using NavMeshPlus.Components;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class LevelDIgenerator : MonoBehaviour
+public class LevelDigenerator : MonoBehaviour
 {
     [SerializeField] private float _levelOffset;
     [SerializeField] private int _levelLenght;
@@ -15,17 +16,18 @@ public class LevelDIgenerator : MonoBehaviour
     private Chunk levelPart;
     private Transform _player;
 
-    private void Start()
+    public void Init()
     {
         for(int i = 0; i < _levelPrefs.Count; i++)
         {
             _levelPools.Add(new Pool<Chunk>(_levelPrefs[i], 4));
         }
+        _navMesh.BuildNavMeshAsync();
         _player = FindFirstObjectByType<JackalMovement>().transform;
         SpawnChunks();
     }
 
-    private void LateUpdate()
+    private void Update()
     {
         float diff = (transform.position - _player.position).magnitude;
         if (diff < _levelOffset * 2)
@@ -36,16 +38,17 @@ public class LevelDIgenerator : MonoBehaviour
 
     private void SpawnChunks()
     {
-        for (int i = 0; i < _levelLenght - 1; i++)
+        for (int i = 1; i < _levelLenght; i++)
         {
             levelPart = _levelPools[Random.Range(0, _levelPools.Count)].GetElement(); 
-            levelPart.Hazard = Random.Range(1, 3);
+            levelPart.Hazard = Random.Range(1, 4);
             levelPart.Player = _player;
-            levelPart.Reset();
 
-            levelPart.transform.position = transform.position + Vector3.up * _levelOffset * (i + 1);
+            levelPart.transform.position = transform.position + Vector3.up * _levelOffset;
+            transform.position = levelPart.transform.position;
+
+            levelPart.Reset();
         }
-        transform.position = levelPart.transform.position;
         _navMesh.UpdateNavMesh(_navMesh.navMeshData);
     }
 }
