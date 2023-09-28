@@ -4971,7 +4971,7 @@ MonoBehaviour:
   _deathParts: {fileID: 3576876902555570153}
   _layerMaskForRaycast:
     serializedVersion: 2
-    m_Bits: 311
+    m_Bits: 4919
   _hazard: 10
   _maxHP: 10
   _dropCount: 6

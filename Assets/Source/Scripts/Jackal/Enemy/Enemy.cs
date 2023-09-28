@@ -29,6 +29,7 @@ public class Enemy : MonoBehaviour, Damagable
     [SerializeField] private int _maxHP;
     [SerializeField] private int _dropCount;
     [SerializeField] private bool _isCar;
+    [SerializeField] private Transform _gun;
 
 
     public EnemyIdleState EnemyIdleState { get { return _enemyIdleState; } }
@@ -46,9 +47,13 @@ public class Enemy : MonoBehaviour, Damagable
     public int DropCount { get { return _dropCount; } }
     public int Hazard { get { return _hazard; } }
     public bool IsCar { get { return _isCar; } }
+    public Transform Gun { get { return _gun; } }
 
     private void Awake()
     {
+        if (_gun = null)
+            _gun = transform;
+
         _stateMachine = new StateMachine();
         _enemyIdleState = new EnemyIdleState(_stateMachine, this);
         _enemyMovingState = new EnemyMovingState(_stateMachine, this);
@@ -56,11 +61,14 @@ public class Enemy : MonoBehaviour, Damagable
         _enemyDieState = new EnemyDieState(_stateMachine, this);
         _healthManager = new HealthManager(_maxHP);
 
+        _stateMachine.Initialize(_enemyIdleState);
+
+        if (_enemyConfig.Speed == 0)
+            return;
+
         _navMeshAgent.speed = _enemyConfig.Speed;
         _navMeshAgent.updateRotation = false;
         _navMeshAgent.updateUpAxis = false;
-
-        _stateMachine.Initialize(_enemyIdleState);
     }
 
     private void Update()

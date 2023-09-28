@@ -21,13 +21,13 @@ public class EnemyMovingState : State
             _stateMachine.ChangeState(_enemy.EnemyIdleState);
 
         if (_enemy.HealthManager.Health <= 0)
-        {
             _stateMachine.ChangeState(_enemy.EnemyDieState);
-        }
     }
 
     public override void Enter()
     {
+        if (_enemy.NavMeshAgent == null)
+            return;
         if (!_enemy.IsCar)
             _enemy.Animator.SetBool("IsRun", true);
         _enemy.NavMeshAgent.isStopped = false;
@@ -35,6 +35,8 @@ public class EnemyMovingState : State
 
     public override void Exit()
     {
+        if (_enemy.NavMeshAgent == null)
+            return;
         if (!_enemy.IsCar)
             _enemy.Animator.SetBool("IsRun", false);
         _enemy.NavMeshAgent.isStopped = true;
@@ -44,11 +46,12 @@ public class EnemyMovingState : State
     {
         _diff = _enemy.Player.position - _enemy.transform.position;
         CheckStateChange();
-        _enemy.NavMeshAgent.destination = _enemy.Player.position;
-        if (_enemy.IsCar)
+        if(_enemy.NavMeshAgent != null)
+            _enemy.NavMeshAgent.destination = _enemy.Player.position;
+        if (_enemy.IsCar || _enemy.NavMeshAgent == null)
         {
             float angleForCar = Vector2.SignedAngle(Vector2.right, _diff);
-            _enemy.transform.eulerAngles = new Vector3(0, 0, angleForCar);
+            _enemy.Gun.eulerAngles = new Vector3(0, 0, angleForCar);
             return;
         }
         float angle = Vector2.SignedAngle(Vector2.up, _diff);
