@@ -4971,11 +4971,12 @@ MonoBehaviour:
   _deathParts: {fileID: 3576876902555570153}
   _layerMaskForRaycast:
     serializedVersion: 2
-    m_Bits: 4919
+    m_Bits: 4407
   _hazard: 10
   _maxHP: 10
   _dropCount: 6
   _isCar: 0
+  _gun: {fileID: 0}
 --- !u!195 &8648052873849326469
 NavMeshAgent:
   m_ObjectHideFlags: 0

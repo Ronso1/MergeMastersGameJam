@@ -51,7 +51,7 @@ public class Enemy : MonoBehaviour, Damagable
 
     private void Awake()
     {
-        if (_gun = null)
+        if (_gun == null)
             _gun = transform;
 
         _stateMachine = new StateMachine();

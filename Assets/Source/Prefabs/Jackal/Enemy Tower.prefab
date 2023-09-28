@@ -4885,7 +4885,7 @@ Transform:
   m_GameObject: {fileID: 2615000746253928604}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4917,7 +4917,7 @@ Transform:
   m_GameObject: {fileID: 7726997085282984641}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.6000004, z: 0}
+  m_LocalPosition: {x: 0.6, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4990,7 +4990,7 @@ GameObject:
   - component: {fileID: 3144307982603920156}
   - component: {fileID: 651336110393078304}
   - component: {fileID: 6727202937612851749}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5087,7 +5087,7 @@ MonoBehaviour:
   _deathParts: {fileID: 2816080114566433501}
   _layerMaskForRaycast:
     serializedVersion: 2
-    m_Bits: 4867
+    m_Bits: 4355
   _hazard: 17
   _maxHP: 35
   _dropCount: 23
@@ -5119,7 +5119,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!95 &651336110393078304
 Animator:
   serializedVersion: 5
