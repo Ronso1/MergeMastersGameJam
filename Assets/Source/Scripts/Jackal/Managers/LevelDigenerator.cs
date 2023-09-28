@@ -2,6 +2,7 @@ using NavMeshPlus.Components;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cysharp.Threading.Tasks;
 using UnityEngine.AI;
 
 public class LevelDigenerator : MonoBehaviour
@@ -12,22 +13,21 @@ public class LevelDigenerator : MonoBehaviour
     [SerializeField] private List<Chunk> _levelPrefs = new List<Chunk>();
     [SerializeField] private NavMeshSurface _navMesh;
 
-
     private Chunk levelPart;
     private Transform _player;
 
-    public void Init()
+    public async void Init()
     {
         for(int i = 0; i < _levelPrefs.Count; i++)
         {
             _levelPools.Add(new Pool<Chunk>(_levelPrefs[i], 4));
         }
-        _navMesh.BuildNavMeshAsync();
         _player = FindFirstObjectByType<JackalMovement>().transform;
+
         SpawnChunks();
     }
 
-    private void Update()
+    private async void Update()
     {
         float diff = (transform.position - _player.position).magnitude;
         if (diff < _levelOffset * 2)
@@ -36,7 +36,7 @@ public class LevelDigenerator : MonoBehaviour
         }
     }
 
-    private void SpawnChunks()
+    private async UniTask SpawnChunks()
     {
         for (int i = 1; i < _levelLenght; i++)
         {
@@ -49,6 +49,7 @@ public class LevelDigenerator : MonoBehaviour
 
             levelPart.Reset();
         }
+
         _navMesh.UpdateNavMesh(_navMesh.navMeshData);
     }
 }
