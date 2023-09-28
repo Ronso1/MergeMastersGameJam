@@ -1592,7 +1592,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelOffset: 22
-  _levelLenght: 4
+  _levelLenght: 8
   _levelPrefs:
   - {fileID: 2937333357741495441, guid: a9d8627b342b3cb4d9ed6be8e2b85a06, type: 3}
   - {fileID: 5858260163232866825, guid: 1676df6f9cd68f44db2e71e1b9e1062b, type: 3}
@@ -8615,7 +8615,7 @@ GameObject:
   - component: {fileID: 7915891567467216217}
   - component: {fileID: 689194501060821784}
   - component: {fileID: 7915891567467216218}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13964,7 +13964,7 @@ GameObject:
   - component: {fileID: 1461095410512164686}
   - component: {fileID: 2538654604130852124}
   - component: {fileID: 7499437049923804521}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
