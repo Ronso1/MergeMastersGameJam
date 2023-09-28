@@ -8,6 +8,7 @@ public class HealthManager
     private int _health;
 
     public int Health { get { return _health; } }
+    public int MaxHealth { get { return _maxHealth; } }
 
     public HealthManager(int maxHealth) 
     {

@@ -24,6 +24,7 @@ public class JackalMovement : MonoBehaviour, Damagable
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private Transform _gun;
     [SerializeField] private Slider _levelSlider;
+    [SerializeField] private Slider _heaithSlider;
     [SerializeField] private GameObject _levelUpPanel;
     [SerializeField] private GameObject _diePanel;
     [SerializeField] private float _speed;
@@ -69,8 +70,11 @@ public class JackalMovement : MonoBehaviour, Damagable
 
     public void GetDamage(int damage)
     {
-        if(!isStop)
+        if (!isStop)
+        {
             _healthManager.GetDamage(damage);
+            _heaithSlider.value = (float)_healthManager.Health / _healthManager.MaxHealth;
+        }
     }
 
     private void OnEnable()
