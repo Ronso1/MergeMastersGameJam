@@ -24,7 +24,7 @@ public class LevelDigenerator : MonoBehaviour
         }
         _player = FindFirstObjectByType<JackalMovement>().transform;
 
-        SpawnChunks();
+        await SpawnChunks();
     }
 
     private async void Update()
@@ -32,7 +32,7 @@ public class LevelDigenerator : MonoBehaviour
         float diff = (transform.position - _player.position).magnitude;
         if (diff < _levelOffset * 2)
         {
-            SpawnChunks();
+            await SpawnChunks();
         }
     }
 
@@ -50,6 +50,6 @@ public class LevelDigenerator : MonoBehaviour
             levelPart.Reset();
         }
 
-        _navMesh.UpdateNavMesh(_navMesh.navMeshData);
+        await _navMesh.UpdateNavMesh(_navMesh.navMeshData);
     }
 }
