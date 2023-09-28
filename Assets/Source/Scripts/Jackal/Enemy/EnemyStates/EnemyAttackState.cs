@@ -28,7 +28,7 @@ public class EnemyAttackState : State
     public override void Enter()
     {
         _timer = 100;
-        if (_enemy.IsCar)
+        if (_enemy.IsCar || _enemy.NavMeshAgent == null)
         {
             _attackTime = 3;
             return;
@@ -39,7 +39,7 @@ public class EnemyAttackState : State
 
     public override void Exit()
     {
-        if (_enemy.IsCar)
+        if (_enemy.IsCar || _enemy.NavMeshAgent == null)
             return;
         _enemy.Animator.SetBool("Attack", false);
     }
@@ -56,10 +56,10 @@ public class EnemyAttackState : State
         _timer += Time.deltaTime;
 
         float angle = Vector2.SignedAngle(Vector2.up, _diff);
-        if (_enemy.IsCar)
+        if (_enemy.IsCar || _enemy.NavMeshAgent == null)
         {
             float angleForCar = Vector2.SignedAngle(Vector2.right, _diff);
-            _enemy.transform.eulerAngles = new Vector3(0, 0, angleForCar);
+            _enemy.Gun.eulerAngles = new Vector3(0, 0, angleForCar);
             return;
         }
         if (angle > 0)
