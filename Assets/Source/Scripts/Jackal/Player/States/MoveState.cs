@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -63,6 +64,6 @@ public class MoveState : State
 
     public override void PhysicsUpdate()
     {
-        _jackal.Rigidbody.velocity = _input.normalized * _jackal.Speed;
+        _jackal.Rigidbody.velocity = _input.normalized * _jackal.Speed * Convert.ToInt32(!_jackal.IsStop);
     }
 }
