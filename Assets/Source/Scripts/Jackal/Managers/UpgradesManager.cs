@@ -9,7 +9,7 @@ public class UpgradesManager : MonoBehaviour
 
     public void Heal()
     {
-        _player.HealthManager.Heal(20);
+        _player.Heal(20);
         _player.StopGame.Invoke();
         gameObject.SetActive(false);
     }
