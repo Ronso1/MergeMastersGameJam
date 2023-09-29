@@ -489,7 +489,9 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 461964642520901556}
   _gun: {fileID: 6356911143580555189}
   _levelSlider: {fileID: 0}
+  _heaithSlider: {fileID: 0}
   _levelUpPanel: {fileID: 0}
+  _diePanel: {fileID: 0}
   _speed: 10
   _maxHP: 100
 --- !u!114 &6699677102709682518
@@ -508,4 +510,3 @@ MonoBehaviour:
   _movement: {fileID: 3593018875261330268}
   _gun: {fileID: 6356911143580555189}
   _bulletPrefab: {fileID: -7497982149495338596, guid: 71b6cfd93364c6e41bcd257ab0d5b68b, type: 3}
-  _damage: 5

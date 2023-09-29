@@ -126,11 +126,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96f808f0ab841e84e8e7b94486d03121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 10
-  _damage: 7
   _rigidbody: {fileID: 3851127372213878395}
+  _config: {fileID: 11400000, guid: 6cf0ab10e19fc97428bfb975a1773097, type: 2}
+  _spriteRenderer: {fileID: 518478777652217776}
   _directon: {x: 0, y: 0}
-  _tag: Player
 --- !u!58 &4730847370192335709
 CircleCollider2D:
   m_ObjectHideFlags: 0
