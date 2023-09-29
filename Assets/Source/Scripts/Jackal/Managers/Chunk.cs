@@ -17,6 +17,8 @@ public class Chunk : MonoBehaviour, Poolable
         if(collision.TryGetComponent(out CameraCollider _))
         {
             gameObject.SetActive(false);
+            if (_enemies == null)
+                return;
             foreach (Enemy enemy in _enemies)
             {
                 enemy.gameObject.SetActive(false);

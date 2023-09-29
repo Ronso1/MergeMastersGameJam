@@ -1920,6 +1920,12 @@ MonoBehaviour:
   - {fileID: 570754694117569392, guid: 850cb23df1a1537498a6b7673e734c19, type: 3}
   - {fileID: 5956793479025760416, guid: 09a2fbf9b8495cf4781610dc14047651, type: 3}
   - {fileID: 5660574066948121179, guid: 68422bacfd0e98f428f18d87f11d7537, type: 3}
+  _levelStartPrefs:
+  - {fileID: 5951427006268334197, guid: e10e2da84cced5445a1d6e2af6e5e23a, type: 3}
+  _levelEndPrefs:
+  - {fileID: 5951427006268334197, guid: b10b4a59f6d6058448d22f4142cf887d, type: 3}
+  _levelLoadingPrefs:
+  - {fileID: 5951427006268334197, guid: 5e6c9ea1368c09b4fbfb3bc761b38f1f, type: 3}
   _navMesh: {fileID: 391238015}
 --- !u!1 &940397793
 GameObject:
@@ -14486,7 +14492,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3593018875261330268, guid: dc8b76f38048d8c47811ef7cbea8f845, type: 3}
       propertyPath: _maxHP
-      value: 100
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 3593018875261330268, guid: dc8b76f38048d8c47811ef7cbea8f845, type: 3}
       propertyPath: _diePanel
