@@ -29,7 +29,7 @@ public class LevelDigenerator : MonoBehaviour
     private Chunk levelPart;
     private Transform _player;
 
-    public async void Init()
+    public void Init()
     {
         for(int i = 0; i < _levelPrefs.Count; i++)
         {
@@ -42,7 +42,7 @@ public class LevelDigenerator : MonoBehaviour
 
         _player = FindFirstObjectByType<JackalMovement>().transform;
 
-        await SpawnChunks();
+        SpawnChunks();
     }
 
     private void AddChunkPool(List<Chunk> chunkPrefs, List<Pool<Chunk>> pools)
@@ -53,16 +53,16 @@ public class LevelDigenerator : MonoBehaviour
         }
     }
 
-    private async void Update()
+    private void Update()
     {
         float diff = (transform.position - _player.position).magnitude;
         if (diff < _levelOffset)
         {
-            await SpawnChunks();
+            SpawnChunks();
         }
     }
 
-    private async UniTask SpawnChunks()
+    private void SpawnChunks()
     {
         for (int i = 1; i < _levelLenght; i++)
         {
@@ -76,9 +76,9 @@ public class LevelDigenerator : MonoBehaviour
             levelPart.Reset();
         }
 
-        CheateLoadPart();
+        _navMesh.UpdateNavMesh(_navMesh.navMeshData);
 
-        await _navMesh.UpdateNavMesh(_navMesh.navMeshData);
+        CheateLoadPart();
     }
 
     private void CheateLoadPart()
