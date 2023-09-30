@@ -36,4 +36,9 @@ public class Bullet : MonoBehaviour, Poolable
     {
         _damageToAdd += damage;
     }
+
+    public void SetConfig(BulletConfig config)
+    {
+        _config = config;
+    }
 }

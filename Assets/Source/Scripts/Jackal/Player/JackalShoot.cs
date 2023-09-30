@@ -8,6 +8,7 @@ public class JackalShoot : MonoBehaviour
     [SerializeField] private JackalMovement _movement;
     [SerializeField] private Transform _gun;
     [SerializeField] private Bullet _bulletPrefab;
+    [SerializeField] private BulletConfig _bulletConfig;
     private int _damage = 0;
     private Pool<Bullet> _bulletPool;
 
@@ -29,8 +30,14 @@ public class JackalShoot : MonoBehaviour
         Bullet bullet = _bulletPool.GetElement();
         bullet.SetDamage(_damage);
         bullet._directon = _gun.rotation * Vector2.right;
+        bullet.SetConfig(_bulletConfig);
         bullet.Reset();
         bullet.transform.position = _shootPosition.position;
+    }
+
+    public void ChangeBullet(BulletConfig config)
+    {
+        _bulletConfig = config;
     }
 
     public void AddDamage( int damage)

@@ -25,7 +25,7 @@ public class JackalMovement : MonoBehaviour, Damagable
 	[SerializeField] private Transform _gun;
 	[SerializeField] private Slider _levelSlider;
 	[SerializeField] private Slider _heaithSlider;
-	[SerializeField] private GameObject _levelUpPanel;
+	[SerializeField] private UpgradesManager _levelUpPanel;
 	[SerializeField] private GameObject _diePanel;
 	[SerializeField] private float _speed;
 	[SerializeField] private int _maxHP;
@@ -92,8 +92,9 @@ public class JackalMovement : MonoBehaviour, Damagable
 		if(_levelSlider.value >= 1)
 		{
 			StopGame?.Invoke();
-			_levelUpPanel.SetActive(true);
-			_level++;
+			_levelUpPanel.gameObject.SetActive(true);
+            _levelUpPanel.ShowUpgrades();
+            _level++;
 			_levelSlider.value = 0;
 		}
 	}
