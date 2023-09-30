@@ -270,6 +270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: {fileID: 1320865517}
+  _showScore: {fileID: 860814825}
 --- !u!1 &70685458
 GameObject:
   m_ObjectHideFlags: 0
