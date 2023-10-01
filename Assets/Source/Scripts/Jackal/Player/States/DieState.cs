@@ -1,7 +1,9 @@
+using GamePush;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class DieState : State
 {
@@ -14,11 +16,15 @@ public class DieState : State
 
     public override void CheckStateChange()
     {
-        
     }
 
     public override void Enter()
     {
+        if ((int)GP_Player.GetScore() < CalculateDistance.playerScore)
+        {
+            GP_Player.SetScore(CalculateDistance.playerScore);
+            GP_Player.Sync(true);
+        }
         _jackal.DiePanel.SetActive(true);
     }
 
