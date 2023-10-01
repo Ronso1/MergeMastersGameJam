@@ -10,6 +10,9 @@ public class LevelDigenerator : MonoBehaviour
     [SerializeField] private float _levelOffset;
     [SerializeField] private int _levelLenght;
 
+    private int _enemyLevel = 1;
+    private int _mapLevel = 0;
+
     #region LevelPartsPools
     private List<Pool<Chunk>> _levelPools = new List<Pool<Chunk>>();
     [SerializeField] private List<Chunk> _levelPrefs = new List<Chunk>();
@@ -64,15 +67,20 @@ public class LevelDigenerator : MonoBehaviour
 
     private void SpawnChunks()
     {
+        _mapLevel++;
+
+        if (_mapLevel % 2 == 0)
+            _enemyLevel++;
+
         for (int i = 1; i < _levelLenght; i++)
         {
             levelPart = _levelPools[Random.Range(0, _levelPools.Count)].GetElement(); 
             levelPart.Hazard = Random.Range(1, 4);
             levelPart.Player = _player;
+            levelPart.EnemyLevel = _enemyLevel;
 
             levelPart.transform.position = transform.position + Vector3.up * _levelOffset;
             transform.position = levelPart.transform.position;
-
             levelPart.Reset();
         }
 

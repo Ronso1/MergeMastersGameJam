@@ -49,6 +49,24 @@ public class UpgradesManager : MonoBehaviour
         UpgradesEnd();
     }
 
+    public void IncreaceSide()
+    {
+        _playerGun.IncreaceSide();
+        UpgradesEnd();
+    }
+
+    public void IncreaceForward()
+    {
+        _playerGun.IncreaceForward();
+        UpgradesEnd();
+    }
+
+    public void IncreaceSize()
+    {
+        _playerGun.IncreaceSize();
+        UpgradesEnd();
+    }
+
     private void UpgradesEnd()
     {
         _player.StopGame.Invoke();

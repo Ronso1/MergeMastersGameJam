@@ -19,16 +19,17 @@ public class EnemiesController : MonoBehaviour
         jackalMovement = _player.GetComponent<JackalMovement>();
         _enemyBullets = new Pool<Bullet>(_bulletPrefab, 30);
         _enemyDrops = new Pool<Drop>(_dropPrefab, 20);
-        NewChunk(FindObjectsOfType<Enemy>().ToList());
+        NewChunk(FindObjectsOfType<Enemy>().ToList(), 1);
     }
 
-    public void NewChunk(List<Enemy> enemies)
+    public void NewChunk(List<Enemy> enemies, int enemiesLevel)
     {
         foreach (Enemy enemy in enemies)
         {
             _enemies.Add(enemy);
             enemy.BulletPool = _enemyBullets;
             enemy.DropPool = _enemyDrops;
+            enemy.HealthManager.IncreaceHp(enemiesLevel);
             jackalMovement.StopGame += enemy.Stop;
             enemy.SetPlayer(_player);
         }
