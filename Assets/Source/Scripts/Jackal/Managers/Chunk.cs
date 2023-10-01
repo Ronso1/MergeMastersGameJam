@@ -10,6 +10,7 @@ public class Chunk : MonoBehaviour, Poolable
 
     public List<Enemy> Enemies { get { return _enemies; } }
     public int Hazard { get; set; }
+    public int EnemyLevel { get; set; }
     public Transform Player { get; set; }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -42,6 +43,6 @@ public class Chunk : MonoBehaviour, Poolable
                 activeEnemies.Add(enemy);
             }
         }
-        FindFirstObjectByType<EnemiesController>().NewChunk(activeEnemies);
+        FindFirstObjectByType<EnemiesController>().NewChunk(activeEnemies, EnemyLevel);
     }
 }

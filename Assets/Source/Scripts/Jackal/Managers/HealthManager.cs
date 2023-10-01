@@ -25,6 +25,11 @@ public class HealthManager
     {
         _health += hp;
     }
+    public void IncreaceHp(int multiply)
+    {
+        _maxHealth *= multiply;
+        _health *= multiply;
+    }
 
     public void Reset()
     {
