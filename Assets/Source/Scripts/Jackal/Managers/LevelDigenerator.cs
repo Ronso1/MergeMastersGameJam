@@ -59,7 +59,7 @@ public class LevelDigenerator : MonoBehaviour
     private void Update()
     {
         float diff = (transform.position - _player.position).magnitude;
-        if (diff < _levelOffset)
+        if (diff < _levelOffset * 1.5f)
         {
             SpawnChunks();
         }
@@ -92,8 +92,8 @@ public class LevelDigenerator : MonoBehaviour
     private void CheateLoadPart()
     {
         CreateLoadChunk(_levelEndPool[Random.Range(0, _levelEndPool.Count)].GetElement());
-        CreateLoadChunk(_levelLoadingPool[Random.Range(0, _levelLoadingPool.Count)].GetElement());
-        CreateLoadChunk(_levelLoadingPool[Random.Range(0, _levelLoadingPool.Count)].GetElement());
+        for(int i = 0; i < 2; i++)
+            CreateLoadChunk(_levelLoadingPool[Random.Range(0, _levelLoadingPool.Count)].GetElement());
         CreateLoadChunk(_levelStartPool[Random.Range(0, _levelStartPool.Count)].GetElement());
     }
 

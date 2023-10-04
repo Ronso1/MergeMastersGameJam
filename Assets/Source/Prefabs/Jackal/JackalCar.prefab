@@ -509,5 +509,10 @@ MonoBehaviour:
   _shootPosition: {fileID: 1608936127610285435}
   _movement: {fileID: 3593018875261330268}
   _gun: {fileID: 6356911143580555189}
+  _layersForAutoAttack:
+    serializedVersion: 2
+    m_Bits: 512
   _bulletPrefab: {fileID: -7497982149495338596, guid: 71b6cfd93364c6e41bcd257ab0d5b68b, type: 3}
   _bulletConfig: {fileID: 11400000, guid: 1cba2abf5ca01524d8713ed962b92633, type: 2}
+  _fireRate: 0.8
+  _fireRadius: 15

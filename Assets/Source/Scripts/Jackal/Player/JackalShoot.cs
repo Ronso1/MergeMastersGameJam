@@ -8,12 +8,14 @@ public class JackalShoot : MonoBehaviour
     [SerializeField] private Transform _shootPosition;
     [SerializeField] private JackalMovement _movement;
     [SerializeField] private Transform _gun;
+    [SerializeField] private LayerMask _layersForAutoAttack;
     [SerializeField] private Bullet _bulletPrefab;
     [SerializeField] private BulletConfig _bulletConfig;
     private int _damage = 0;
     private Pool<Bullet> _bulletPool;
 
     [SerializeField] private float _fireRate = 0.8f;
+    [SerializeField] private float _fireRadius = 5f;
     private float _fireTimer = 0f;
     private int _sideMultiply = 1;
     private int _forwardMultiply = 1;
@@ -26,26 +28,62 @@ public class JackalShoot : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetMouseButtonDown(0) && _fireTimer > _fireRate && !_movement.IsStop)
+        if (_fireTimer > _fireRate && !_movement.IsStop)
         {
-            Shoot();
+            if (!AutoAttack())
+                return;
             _fireTimer = 0;
         }
         _fireTimer += Time.deltaTime;
     }
 
+    private bool AutoAttack()
+    {
+        Collider2D[] _targets = Physics2D.OverlapCircleAll(transform.position, _fireRadius, _layersForAutoAttack);
+        Collider2D finalTarget = null;
+        float minDistance = _fireRadius;
+
+        if (_targets.Length < 1)
+        {
+            return false;
+        }
+
+        foreach (var target in _targets)
+        {
+            float distance = Distance(target.transform.position);
+
+            if (distance < minDistance)
+            {
+                minDistance = distance;
+                finalTarget = target;
+            }
+        }
+
+        Vector3 diff = finalTarget.transform.position - _gun.position;
+        float angle = Vector2.SignedAngle(Vector2.right, diff);
+        _gun.eulerAngles = new Vector3(0, 0, angle);
+
+        Shoot();
+
+        return true;
+    }
+
+    private float Distance(Vector3 target)
+    {
+        return (target - transform.position).magnitude;
+    }
+
     private async void Shoot()
     {
-        for(int i = 0; i < _forwardMultiply; i++)
+        for (int i = 0; i < _forwardMultiply; i++)
         {
-            for(int j = 0; j < _sideMultiply; j++)
+            for (int j = 0; j < _sideMultiply; j++)
             {
                 Bullet bullet = _bulletPool.GetElement();
                 bullet.transform.localScale = Vector2.one * _sizeMultiply;
                 bullet.SetDamage(_damage);
                 float angle = 15f * Mathf.Pow(-1, j + 1) * Mathf.CeilToInt(j / 2f);
                 bullet._directon = _gun.rotation * Quaternion.Euler(0, 0, angle) * Vector2.right;
-                Debug.Log(_gun.rotation.z);
                 bullet.SetConfig(_bulletConfig);
                 bullet.Reset();
                 bullet.transform.position = _shootPosition.position;
@@ -59,7 +97,7 @@ public class JackalShoot : MonoBehaviour
         _bulletConfig = config;
     }
 
-    public void AddDamage( int damage)
+    public void AddDamage(int damage)
     {
         _damage += damage;
     }

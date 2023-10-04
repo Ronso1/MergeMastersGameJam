@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 236273410222cc049b2653c41f83c26b, type: 3}
-  m_Name: PlayerBullet
+  m_Script: {fileID: 11500000, guid: 4436fb1e7c8d5384ebd8695e49f09b20, type: 3}
+  m_Name: Car
   m_EditorClassIdentifier: 
-  _sprite: {fileID: 21300000, guid: 140f476f4e4ef4a42870074015c492bd, type: 3}
-  _speed: 20
-  _damage: 5
-  _tag: Enemy
+  _speed: 4
+  _idleDistance: 17
+  _attackDistance: 12
