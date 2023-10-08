@@ -40,7 +40,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6356911143580555189}
-  - component: {fileID: 8026617587997724301}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -65,18 +64,6 @@ Transform:
   - {fileID: 1503373134744352258}
   m_Father: {fileID: 7867795699223758083}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8026617587997724301
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 762898198473601935}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61cfc8d6226b2014090c0be4ab611e29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3718283744209215090
 GameObject:
   m_ObjectHideFlags: 0
@@ -509,10 +496,13 @@ MonoBehaviour:
   _shootPosition: {fileID: 1608936127610285435}
   _movement: {fileID: 3593018875261330268}
   _gun: {fileID: 6356911143580555189}
-  _layersForAutoAttack:
-    serializedVersion: 2
-    m_Bits: 512
   _bulletPrefab: {fileID: -7497982149495338596, guid: 71b6cfd93364c6e41bcd257ab0d5b68b, type: 3}
   _bulletConfig: {fileID: 11400000, guid: 1cba2abf5ca01524d8713ed962b92633, type: 2}
   _fireRate: 0.8
   _fireRadius: 15
+  _layersForAutoAttack:
+    serializedVersion: 2
+    m_Bits: 512
+  _layerMaskForEnemyRaycast:
+    serializedVersion: 2
+    m_Bits: 513

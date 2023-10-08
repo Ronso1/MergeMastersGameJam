@@ -20,6 +20,7 @@ public class DieState : State
 
     public override void Enter()
     {
+        _jackal.StopGame?.Invoke();
         if ((int)GP_Player.GetScore() < CalculateDistance.playerScore)
         {
             GP_Player.SetScore(CalculateDistance.playerScore);
