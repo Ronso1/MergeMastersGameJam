@@ -479,6 +479,7 @@ MonoBehaviour:
   _heaithSlider: {fileID: 0}
   _levelUpPanel: {fileID: 0}
   _diePanel: {fileID: 0}
+  _joystick: {fileID: 0}
   _speed: 10
   _maxHP: 100
 --- !u!114 &6699677102709682518

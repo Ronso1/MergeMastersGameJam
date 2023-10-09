@@ -15,7 +15,7 @@ public class CameraController : MonoBehaviour
         _maxPos = _player.position.y;
 
         _thisCamera = GetComponent<Camera>();
-        _collider.position = Vector2.down * (_thisCamera.orthographicSize + 0.5f);
+        _collider.localPosition = Vector2.down * (_thisCamera.orthographicSize + 0.5f);
     }
 
     private void Update()
@@ -23,6 +23,6 @@ public class CameraController : MonoBehaviour
         if(_player.position.y > _maxPos)
             transform.position = new Vector3(-4, _maxPos = _player.position.y, -10);
 
-        _collider.position = Vector2.down * (_thisCamera.orthographicSize + 0.5f);
+        _collider.localPosition = Vector2.down * (_thisCamera.orthographicSize + 0.5f);
     }
 }

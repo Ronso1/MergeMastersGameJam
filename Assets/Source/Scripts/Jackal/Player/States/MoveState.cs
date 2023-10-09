@@ -38,7 +38,7 @@ public class MoveState : State
 
     public override void HandleInput()
     {
-        _input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        _input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) + new Vector2(_jackal.Joystick.Horizontal, _jackal.Joystick.Vertical);
     }
 
     public override void LogicUpdate()

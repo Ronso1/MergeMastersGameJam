@@ -27,6 +27,7 @@ public class JackalMovement : MonoBehaviour, Damagable
 	[SerializeField] private Slider _heaithSlider;
 	[SerializeField] private UpgradesManager _levelUpPanel;
 	[SerializeField] private GameObject _diePanel;
+	[SerializeField] private FloatingJoystick _joystick;
 	[SerializeField] private float _speed;
 	[SerializeField] private int _maxHP;
 
@@ -42,7 +43,8 @@ public class JackalMovement : MonoBehaviour, Damagable
 	public DieState DieState { get { return _dieState; } }
 	public MoveState MoveState { get { return _moveState; } }
 	public GameObject DiePanel { get { return _diePanel; } }
-	public float Speed { get { return _speed; } }
+	public FloatingJoystick Joystick { get { return _joystick; } }
+    public float Speed { get { return _speed; } }
 	public bool IsStop { get { return isStop; } }
 
 	private void Awake()
@@ -102,6 +104,7 @@ public class JackalMovement : MonoBehaviour, Damagable
 	void Stop()
 	{
 		isStop = !isStop;
+		_joystick.gameObject.SetActive(!isStop);
 	}
 
 	public void AddSpeed(float speed)
