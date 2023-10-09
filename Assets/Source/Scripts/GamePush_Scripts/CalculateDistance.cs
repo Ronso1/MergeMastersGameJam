@@ -17,8 +17,12 @@ public class CalculateDistance : MonoBehaviour
 
     private void Update()
     {
-        playerScore = Mathf.CeilToInt(_player.position.y) - _startPoint;
-        _distance.text = "Distance: " + (int)playerScore;
+        int diff = Mathf.CeilToInt(_player.position.y) - _startPoint;
 
+        if (diff <= playerScore)
+            return;
+
+        playerScore = diff;
+        _distance.text = "Distance: " + playerScore;
     }
 }

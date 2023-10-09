@@ -4992,7 +4992,7 @@ GameObject:
   - component: {fileID: 6727202937612851749}
   m_Layer: 9
   m_Name: Enemy Tower
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5087,7 +5087,7 @@ MonoBehaviour:
   _deathParts: {fileID: 2816080114566433501}
   _layerMaskForRaycast:
     serializedVersion: 2
-    m_Bits: 4355
+    m_Bits: 259
   _hazard: 17
   _maxHP: 35
   _dropCount: 23

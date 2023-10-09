@@ -11,5 +11,7 @@ public class GameRoot : MonoBehaviour
     {
         _enemiesController.Init();
         _digenerator.Init();
+
+        
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class JackalAim : MonoBehaviour
 {
-    private Camera _camera;
+    /*private Camera _camera;
 
     private void Start()
     {
@@ -16,5 +16,5 @@ public class JackalAim : MonoBehaviour
         Vector2 diff = _camera.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         float angle = Vector2.SignedAngle(Vector2.right, diff);
         transform.eulerAngles = new Vector3(0, 0, angle);
-    }
+    }*/
 }

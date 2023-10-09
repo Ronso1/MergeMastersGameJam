@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: PlayerBullet
   m_EditorClassIdentifier: 
   _sprite: {fileID: 21300000, guid: 140f476f4e4ef4a42870074015c492bd, type: 3}
-  _speed: 15
+  _speed: 20
   _damage: 5
   _tag: Enemy

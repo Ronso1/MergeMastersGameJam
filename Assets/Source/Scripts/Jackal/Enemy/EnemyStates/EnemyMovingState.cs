@@ -39,6 +39,7 @@ public class EnemyMovingState : State
             return;
         if (!_enemy.IsCar)
             _enemy.Animator.SetBool("IsRun", false);
+        _enemy.NavMeshAgent.SetDestination(_enemy.transform.position);
         _enemy.NavMeshAgent.isStopped = true;
     }
 

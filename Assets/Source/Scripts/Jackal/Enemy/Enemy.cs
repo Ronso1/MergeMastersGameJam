@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine; 
-using UnityEngine.AI; 
+using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour, Damagable
 {
@@ -73,20 +73,20 @@ public class Enemy : MonoBehaviour, Damagable
 
     private void Update()
     {
-        if(!isStop)
+        if (!isStop)
             _stateMachine.CurrentState.LogicUpdate();
     }
 
     private void FixedUpdate()
     {
-        if(!isStop)
+        if (!isStop)
             _stateMachine.CurrentState.PhysicsUpdate();
     }
 
     public bool RaycastToPlayer(Vector2 diff)
     {
         var hit = Physics2D.Raycast(_shootPos.position, diff, _enemyConfig.AttackDistance, _layerMaskForRaycast);
-        if(hit.collider != null && hit.collider.TryGetComponent(out JackalMovement _))
+        if (hit.collider != null && hit.collider.TryGetComponent(out JackalMovement _))
         {
             return true;
         }
@@ -112,5 +112,7 @@ public class Enemy : MonoBehaviour, Damagable
     public void Stop()
     {
         isStop = !isStop;
+        if(_navMeshAgent != null && _navMeshAgent.hasPath)
+            _navMeshAgent.isStopped = isStop;
     }
 }
