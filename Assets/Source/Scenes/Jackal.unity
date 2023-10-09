@@ -4102,6 +4102,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1142827243}
     m_Modifications:
+    - target: {fileID: 8170153791668043265, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8170153791668043268, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -5023,6 +5027,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _digenerator: {fileID: 835521358}
   _enemiesController: {fileID: 972393549}
+  _joystick: {fileID: 2018197324}
 --- !u!1 &1576380354
 GameObject:
   m_ObjectHideFlags: 0
@@ -5719,7 +5724,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1213037800}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a47f546fc70ec8428172694e78e4288, type: 3}
   m_Name: 
@@ -34896,6 +34901,7 @@ MonoBehaviour:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1537451938}
   - {fileID: 211821073}
   - {fileID: 7948575347039098411}
   - {fileID: 835521357}
@@ -34904,5 +34910,4 @@ SceneRoots:
   - {fileID: 5791889295402005335}
   - {fileID: 1142827243}
   - {fileID: 1878992331}
-  - {fileID: 1537451938}
   - {fileID: 2079236863}
