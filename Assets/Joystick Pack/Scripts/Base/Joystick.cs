@@ -145,6 +145,11 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
         }
         return Vector2.zero;
     }
+
+    public void ReturnToZero()
+    {
+        input = Vector2.zero;
+    }
 }
 
 public enum AxisOptions { Both, Horizontal, Vertical }

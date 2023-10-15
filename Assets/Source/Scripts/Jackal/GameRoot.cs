@@ -13,12 +13,12 @@ public class GameRoot : MonoBehaviour
     {
         _enemiesController.Init();
         _digenerator.Init();
-	_joystick.enabled = true;
+	    _joystick.enabled = true;
 
         if (!GamePush.GP_Device.IsMobile())
         {
             _joystick.enabled = false;
-	    _joystick.SetActive(false);
+	        _joystick.gameObject.SetActive(false);
         }
     }
 }

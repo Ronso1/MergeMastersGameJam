@@ -104,7 +104,9 @@ public class JackalMovement : MonoBehaviour, Damagable
 	void Stop()
 	{
 		isStop = !isStop;
-		_joystick.gameObject.SetActive(!isStop);
+
+		_joystick.ReturnToZero();
+        _joystick.gameObject.SetActive(!isStop);
 	}
 
 	public void AddSpeed(float speed)
